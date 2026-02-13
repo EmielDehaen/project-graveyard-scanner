@@ -1,15 +1,16 @@
 {
   "name": "@efinitydev/project-graveyard-scanner",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A CLI tool to scan projects for stale TODOs and abandoned code.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "pgs": "./dist/index.js"
+    "pgs": "bin/pgs"
   },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "scripts": {
     "build": "tsc",

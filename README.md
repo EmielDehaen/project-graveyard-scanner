@@ -16,13 +16,13 @@ As developers, we leave comments throughout our code. Many of these tasks are ne
 ### Global CLI
 Install the tool globally to use the `pgs` command anywhere:
 ```bash
-npm install -g @efinity/project-graveyard-scanner
+npm install -g @efinitydev/project-graveyard-scanner
 ```
 
 ### As a Library
 Add it to your project:
 ```bash
-npm install @efinity/project-graveyard-scanner
+npm install @efinitydev/project-graveyard-scanner
 ```
 
 ## Usage
@@ -45,7 +45,7 @@ pgs . --output GRAVEYARD.md
 
 ### Library API
 ```typescript
-import { scanDirectory, report } from '@efinity/project-graveyard-scanner';
+import { scanDirectory, report } from '@efinitydev/project-graveyard-scanner';
 
 const results = await scanDirectory('./my-projects', ['node_modules']);
 console.log(results);

@@ -1,0 +1,1 @@
+#!/usr/bin/env node\nimport "../dist/index.js";
