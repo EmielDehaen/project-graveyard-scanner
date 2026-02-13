@@ -1,5 +1,7 @@
 # 🪦 Project Graveyard Scanner (PGS)
 
+[![npm version](https://img.shields.io/npm/v/@efinitydev/project-graveyard-scanner.svg?style=flat-square)](https://www.npmjs.com/package/@efinitydev/project-graveyard-scanner)
+
 A professional CLI tool and library by **Efinity** to sift through your projects and collect all forgotten `TODO`, `FIXME`, and `HACK` comments.
 
 ## Why PGS?
