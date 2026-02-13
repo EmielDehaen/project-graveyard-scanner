@@ -73,7 +73,7 @@ async function scanProject(projectPath: string, exclusions: string[]): Promise<T
     lines.forEach((line, index) => {
       for (const pattern of patterns) {
         const match = line.match(pattern.regex);
-        if (match) {
+        if (match && match[1]) {
           items.push({
             type: (pattern.type === 'TODO_MD' ? 'TODO' : pattern.type) as any,
             message: match[1].trim(),
