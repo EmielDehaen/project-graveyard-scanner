@@ -1,47 +1,58 @@
 # 🪦 Project Graveyard Scanner (PGS)
 
-A handy CLI tool to sift through your projects and collect all forgotten `TODO`, `FIXME`, and `HACK` comments.
+A professional CLI tool and library by **Efinity** to sift through your projects and collect all forgotten `TODO`, `FIXME`, and `HACK` comments.
 
 ## Why PGS?
-As developers, we leave comments throughout our code. Many of these tasks are never completed and disappear into the "project graveyard." PGS brings these tasks back to life by reporting them centrally.
+As developers, we leave comments throughout our code. Many of these tasks are never completed and disappear into the "project graveyard." PGS brings these tasks back to life by reporting them centrally, helping you keep your codebase clean.
 
-## Tech Stack
-- **TypeScript**: For type-safety and better developer experience.
-- **Node.js**: The runtime.
-- **Commander**: For a professional CLI interface.
-- **Fast-glob**: For super-fast file scanning.
-- **Chalk**: For colorful terminal output.
+## Features
+- **CLI Tool:** Fast and colorful terminal output to scan any directory.
+- **Library Support:** Exported functions to integrate scanning logic into your own (React/Node) applications.
+- **CI Ready:** Includes GitHub Actions workflow for automated build verification.
+- **Fast Scanning:** Uses `fast-glob` for high-performance file system traversal.
 
-## Installation & Usage
+## Installation
 
-### Prerequisites
-- Node.js & npm
-
-### Installation
+### Global CLI
+Install the tool globally to use the `pgs` command anywhere:
 ```bash
-npm install
+npm install -g @efinity/project-graveyard-scanner
 ```
 
-### Scanning
+### As a Library
+Add it to your project:
+```bash
+npm install @efinity/project-graveyard-scanner
+```
+
+## Usage
+
+### CLI
 Scan the current directory:
 ```bash
-npm run start
+pgs
 ```
 
-Scan a specific directory:
+Scan a specific directory with exclusions:
 ```bash
-npm run start -- /path/to/projects
+pgs /path/to/projects --exclude "node_modules,dist,temp"
 ```
 
-Add exclusions:
+Save results to a Markdown report:
 ```bash
-npm run start -- . --exclude "node_modules,dist,temp"
+pgs . --output GRAVEYARD.md
 ```
 
-Save results as Markdown:
-```bash
-npm run start -- . --output GRAVEYARD.md
+### Library API
+```typescript
+import { scanDirectory, report } from '@efinity/project-graveyard-scanner';
+
+const results = await scanDirectory('./my-projects', ['node_modules']);
+console.log(results);
 ```
 
-## Architecture Decisions
-I chose **TypeScript** because it is the standard for modern Node.js applications and minimizes errors during development. **Fast-glob** is essential because scanning thousands of files across multiple projects would otherwise be too slow. The interface is kept simple with **Commander** to ensure it is immediately usable for any developer.
+## License
+This project is licensed under the **PolyForm Non-Commercial License 1.0.0**. See the `LICENSE` file for details. For commercial usage, please contact **Efinity (Emiel Dehaen)**.
+
+---
+Built with ⚡ by [Efinity](https://efinity.be)
