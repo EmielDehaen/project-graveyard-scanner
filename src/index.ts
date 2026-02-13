@@ -1,8 +1,12 @@
+#!/usr/bin/env node
 import { Command } from 'commander';
 import { scanDirectory } from './scanner.js';
 import { report } from './reporter.js';
 import chalk from 'chalk';
 import path from 'path';
+
+export { scanDirectory } from './scanner.js';
+export { report } from './reporter.js';
 
 const program = new Command();
 
