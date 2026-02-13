@@ -16,12 +16,16 @@ export interface TodoItem {
   context: string;
 }
 
+/**
+ * Scans a directory for project roots (containing .git or package.json)
+ * and then scans each project for TODO items.
+ */
 export async function scanDirectory(rootPath: string, exclusions: string[]): Promise<ScanResult[]> {
-  // Vind alle projecten (mappen met .git of package.json)
+  // Find all projects (folders with .git or package.json)
   const projectIndicators = await fg(['**/.git', '**/package.json'], {
     cwd: rootPath,
     onlyFiles: false,
-    deep: 5, // Zoek dieper naar project roots
+    deep: 5, // Search deeper for project roots
     ignore: exclusions.map(e => `**/${e}/**`),
   });
 
@@ -44,6 +48,9 @@ export async function scanDirectory(rootPath: string, exclusions: string[]): Pro
   return results;
 }
 
+/**
+ * Scans a single project for TODO patterns in supported file types.
+ */
 async function scanProject(projectPath: string, exclusions: string[]): Promise<TodoItem[]> {
   const files = await fg(['**/*.{ts,js,py,php,go,rs,c,cpp,h,java,md}'], {
     cwd: projectPath,

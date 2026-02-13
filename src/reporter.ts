@@ -16,7 +16,7 @@ export async function report(results: ScanResult[], outputFile?: string) {
 `;
     markdown += `*Path: \`${project.projectPath}\`*\n\n`;
 
-    // Sorteer items op type
+    // Sort items by type
     const types = ['FIXME', 'TODO', 'HACK'];
     
     for (const type of types) {
@@ -41,10 +41,10 @@ export async function report(results: ScanResult[], outputFile?: string) {
   if (outputFile) {
     await fs.writeFile(outputFile, markdown);
     console.log(chalk.green(`
-✅ Rapport opgeslagen in: ${outputFile}`));
+✅ Report saved to: ${outputFile}`));
   }
 
   console.log(`
-${chalk.blue.bold('Totaal gevonden:')} ${results.reduce((acc, curr) => acc + curr.items.length, 0)} items in ${results.length} projecten.
+${chalk.blue.bold('Total found:')} ${results.reduce((acc, curr) => acc + curr.items.length, 0)} items in ${results.length} projects.
 `);
 }

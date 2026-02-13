@@ -18,21 +18,21 @@ program
     const exclusions = options.exclude.split(',');
 
     console.log(chalk.blue(`
-🔍 Scannen van: ${scanPath}`));
-    console.log(chalk.gray(`🚫 Exclusies: ${exclusions.join(', ')}
+🔍 Scanning: ${scanPath}`));
+    console.log(chalk.gray(`🚫 Exclusions: ${exclusions.join(', ')}
 `));
 
     try {
       const results = await scanDirectory(scanPath, exclusions);
       
       if (results.length === 0) {
-        console.log(chalk.yellow("Geen projecten met TODO's gevonden. Je graveyard is leeg! 🪦"));
+        console.log(chalk.yellow("No projects with TODOs found. Your graveyard is empty! 🪦"));
         return;
       }
 
       await report(results, options.output);
     } catch (error) {
-      console.error(chalk.red('Er is een fout opgetreden tijdens het scannen:'), error);
+      console.error(chalk.red('An error occurred during scanning:'), error);
     }
   });
 
