@@ -1,47 +1,47 @@
 # 🪦 Project Graveyard Scanner (PGS)
 
-Een handige CLI-tool om door al je projecten te spitten en alle vergeten `TODO`, `FIXME` en `HACK` comments te verzamelen.
+A handy CLI tool to sift through your projects and collect all forgotten `TODO`, `FIXME`, and `HACK` comments.
 
-## Waarom PGS?
-Als developers laten we overal comments achter in onze code. Veel van deze taken worden nooit afgerond en verdwijnen in de "project graveyard". PGS brengt deze taken weer tot leven door ze centraal te rapporteren.
+## Why PGS?
+As developers, we leave comments throughout our code. Many of these tasks are never completed and disappear into the "project graveyard." PGS brings these tasks back to life by reporting them centrally.
 
 ## Tech Stack
-- **TypeScript**: Voor type-safety en betere developer experience.
-- **Node.js**: De runtime.
-- **Commander**: Voor een professionele CLI interface.
-- **Fast-glob**: Voor supersnelle file scanning.
-- **Chalk**: Voor een kleurrijke terminal output.
+- **TypeScript**: For type-safety and better developer experience.
+- **Node.js**: The runtime.
+- **Commander**: For a professional CLI interface.
+- **Fast-glob**: For super-fast file scanning.
+- **Chalk**: For colorful terminal output.
 
-## Installatie & Gebruik
+## Installation & Usage
 
-### Vereisten
+### Prerequisites
 - Node.js & npm
 
-### Installatie
+### Installation
 ```bash
 npm install
 ```
 
-### Scannen
-Scan de huidige map:
+### Scanning
+Scan the current directory:
 ```bash
 npm run start
 ```
 
-Scan een specifieke map:
+Scan a specific directory:
 ```bash
-npm run start -- /pad/naar/projecten
+npm run start -- /path/to/projects
 ```
 
-Exclusies toevoegen:
+Add exclusions:
 ```bash
 npm run start -- . --exclude "node_modules,dist,temp"
 ```
 
-Resultaat opslaan als Markdown:
+Save results as Markdown:
 ```bash
 npm run start -- . --output GRAVEYARD.md
 ```
 
-## Waarom deze keuzes?
-Ik heb gekozen voor **TypeScript** omdat het de standaard is voor moderne Node.js applicaties en fouten tijdens development minimaliseert. **Fast-glob** is essentieel omdat het scannen van duizenden bestanden in meerdere projecten anders te traag zou zijn. De interface is simpel gehouden met **Commander** zodat het direct bruikbaar is voor elke developer.
+## Architecture Decisions
+I chose **TypeScript** because it is the standard for modern Node.js applications and minimizes errors during development. **Fast-glob** is essential because scanning thousands of files across multiple projects would otherwise be too slow. The interface is kept simple with **Commander** to ensure it is immediately usable for any developer.
