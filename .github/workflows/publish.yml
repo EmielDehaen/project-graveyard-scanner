@@ -2,11 +2,13 @@ name: Publish to NPM
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    # Zorg dat we alleen publishen als de release op de main branch is aangemaakt
+    if: github.event.release.target_commitish == 'main'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,7 +22,9 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Publish to NPM
-        run: npm publish --access public
+      - name: Authenticate and Publish
+        run: |
+          echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > .npmrc
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
