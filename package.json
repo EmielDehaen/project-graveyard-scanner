@@ -1,15 +1,16 @@
 {
-  "name": "@efinity/project-graveyard-scanner",
-  "version": "1.1.1",
+  "name": "@efinitydev/project-graveyard-scanner",
+  "version": "1.1.3",
   "description": "A CLI tool to scan projects for stale TODOs and abandoned code.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "pgs": "./dist/index.js"
+    "pgs": "bin/pgs"
   },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "scripts": {
     "build": "tsc",
@@ -26,6 +27,14 @@
   ],
   "author": "Emiel Dehaen",
   "license": "PolyForm-NonCommercial-1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmielDehaen/project-graveyard-scanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EmielDehaen/project-graveyard-scanner/issues"
+  },
+  "homepage": "https://github.com/EmielDehaen/project-graveyard-scanner#readme",
   "devDependencies": {
     "@types/chalk": "^0.4.31",
     "@types/fs-extra": "^11.0.4",
