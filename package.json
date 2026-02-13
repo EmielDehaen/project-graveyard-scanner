@@ -26,6 +26,14 @@
   ],
   "author": "Emiel Dehaen",
   "license": "PolyForm-NonCommercial-1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmielDehaen/project-graveyard-scanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EmielDehaen/project-graveyard-scanner/issues"
+  },
+  "homepage": "https://github.com/EmielDehaen/project-graveyard-scanner#readme",
   "devDependencies": {
     "@types/chalk": "^0.4.31",
     "@types/fs-extra": "^11.0.4",
